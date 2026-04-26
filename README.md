@@ -38,28 +38,31 @@ CodeCollab lets you write code with others in real-time. Create a room, share th
 **Prerequisites:** Node.js 18+, MongoDB, Redis
 
 ```bash
-# 1. Clone
-git clone <repo-url>
-cd collaborative-editor
+git clone https://github.com/Nikanwar3/CodeCollab.git
+cd CodeCollab
 
-# 2. Install
 cd server && npm install
 cd ../client && npm install
+```
 
-# 3. Env — server/.env
+Create `server/.env`:
+```
 PORT=3001
 MONGODB_URI=mongodb://localhost:27017/collaborative-editor
 JWT_SECRET=your_secret_here
 REDIS_URL=redis://localhost:6379
 CLIENT_URL=http://localhost:5173
+```
 
-# 4. Env — client/.env
+Create `client/.env`:
+```
 VITE_SOCKET_URL=http://localhost:3001
+```
 
-# 5. Run
-brew services start redis          # Terminal 1
-cd server && npm run dev           # Terminal 2
-cd client && npm run dev           # Terminal 3
+```bash
+brew services start redis   # Terminal 1
+cd server && npm run dev    # Terminal 2
+cd client && npm run dev    # Terminal 3
 ```
 
 Open `http://localhost:5173`
@@ -108,21 +111,10 @@ client/src/
 
 ---
 
-## Deployment
+## Roadmap
 
-| Service | Use for | Free tier |
-|---|---|---|
-| Vercel | Client | Yes |
-| Render | Server | Yes |
-| MongoDB Atlas | Database | 512MB |
-| Upstash | Redis | 10k req/day |
-
----
-
-## What's Missing
-
-- [ ] Code execution (Judge0 API / Docker sandbox)
-- [ ] Unit + integration tests (Jest + Supertest)
-- [ ] Room permissions (invite-only, read-only viewer)
-- [ ] Version history / save snapshots
+- [ ] Code execution
+- [ ] Tests
+- [ ] Room permissions (invite-only, viewer mode)
+- [ ] Version history
 - [ ] Multiple files per room
